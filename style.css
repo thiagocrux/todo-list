@@ -1,0 +1,147 @@
+/***** VARIÁVEIS *****/
+
+:root {
+    --custom-line-space: 3rem;
+
+    --text-color-1: #000000;
+    --text-color-2: #3b3b3b;
+    --text-color-3: #979797;
+
+    --delete-icon-color: #ff0000;
+
+    --item-background-color-1: #ffffff;
+    --item-background-color-2: #e9e9e9;
+}
+
+/***** RESET *****/
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/***** BASE *****/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    padding: 6rem;
+    height: 100vh;
+    font-size: 1.6rem;
+    font-family: 'Rubik', Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+}
+
+input::placeholder {
+    font-family: 'Rubik', Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-color-3);
+}
+
+/***** COMPONENTES *****/
+
+.custom-item-background-1 {
+    background-color: var(--item-background-color-1);
+}
+
+.custom-item-background-2 {
+    background-color: var(--item-background-color-2); 
+}
+
+.hide {
+    display: none;
+}
+
+.checked {
+    color: var(--text-color-3);
+    font-weight: 300;
+    text-decoration: line-through;
+}
+
+.button {
+    border: none;
+    width: var(--custom-line-space);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/***** CUSTOM *****/
+
+/* Seção principal */
+
+.primary-heading {
+    margin-bottom: 5rem;
+    font-size: 4.3rem;
+    text-align: center;
+}
+
+.main-section {
+    margin: 0 auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.list {
+    width: 50rem;
+    margin: 0 auto;
+    background-color: var(--item-background-color-1);
+}
+
+.list-item {
+    padding-left: 1rem;
+    height: var(--custom-line-space);
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: all .4s;
+}
+
+.todo {
+    line-height: var(--custom-line-space);
+}
+
+.submit-container {
+    display: flex;
+}
+
+.submit-container {
+    margin: 0 auto;
+    width: 50rem;
+}
+
+.input {
+    padding-left: 1rem;
+    border: none;
+    border-top: 1px solid var(--item-background-color-2);
+    width: 100%;
+    height: var(--custom-line-space);
+}
+
+.add-new-task {
+    background-color: var(--item-background-color-2);
+}
+
+.delete {
+    color: var(--delete-icon-color);
+}
+
+/* Rodapé */
+
+.footer {
+    align-self: baseline;
+}
