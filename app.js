@@ -41,7 +41,7 @@ const createItem = (el) => {
                 <button class="checkbox button">
                     ${el.done === false ? '<i class="large material-icons">check_box_outline_blank</i>' : '<i class="large material-icons">check_box</i>'}
                 </button>
-                <button class="delete button hide">
+                <button class="delete button hide" onClick="deleteItem">
                     <i class="large material-icons">clear</i>
                 </button>
             </div>
@@ -49,6 +49,10 @@ const createItem = (el) => {
     `; 
     
     DOM.list.insertAdjacentHTML('beforeend', markup);
+}
+
+const deleteItem = (el) => {
+    
 }
 
 /* Função que renderiza os itens na tela. */
@@ -98,9 +102,9 @@ const updateUI = () => {
 
 
 
+init();
+
 /***** EVENT LISTENTERS *****/
-
-
 
 /* Adiciona uma nova tarefa ao clicar no botão. */
 
@@ -119,19 +123,26 @@ DOM.addButton.addEventListener('click', () => {
     }
 });
 
-init();
+DOM.list.addEventListener('click', (e) => {
+    const allListItems = document.querySelectorAll('.list-item');
+    const listItem = e.target.closest('.list-item');
+    const checkbox = e.target.closest('.checkbox');
+    const deleteButton = e.target.closest('.delete');
 
-let allItems = document.querySelectorAll('.list-item');
-let allTodos = document.querySelectorAll('.todo');
-let allDeleteButtons = document.querySelectorAll('.delete');
-let allCheckboxButtons = document.querySelectorAll('.checkbox');
-
-allItems.forEach((el, i) => {
-    el.addEventListener('mouseover', () => {
-        allDeleteButtons[i].classList.remove('hide');
-    });
-    
-    el.addEventListener('mouseout', () => {
-        allDeleteButtons[i].classList.add('hide');
-    });
-})
+    if (checkbox) {
+        console.log('A checkbox was clicked.');
+        listItem.children[0].classList.toggle('checked');
+    }
+    else if (deleteButton) {
+        const listItemToBeRemoved = deleteButton.parentNode.parentNode;
+        console.log('A delete button was clicked.');
+        
+        allListItems.forEach((el, i) => {
+            if (el.isSameNode(listItemToBeRemoved)) {{
+                console.log(`Deleting the task of index ${i}`);
+                todos.pop(todos[i]);
+                updateUI();
+            }}
+        });
+    }
+});
