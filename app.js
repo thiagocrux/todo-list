@@ -1,17 +1,4 @@
-let todos = [
-    {
-        todo: 'Estudar para a apresentação de quinta.',
-        done: false,
-    },
-    {
-        todo: 'Terminar o curso de JavaScript.',
-        done: false,
-    },
-    {
-        todo: 'Arrumar a cozinha e fazer o almoço.',
-        done: false,
-    },
-];
+let todos = [];
 
 let DOM = {
     list: document.querySelector('.list'),
@@ -19,17 +6,10 @@ let DOM = {
     addButton: document.querySelector('.add-new-task'),
     deleteButton: document.querySelector('.delete'),
     checkButton: document.querySelector('.check'),
-    allCheckButtons: document.querySelectorAll('.check'),
+    deleteAllButton: document.querySelector('.delete-all'),
 };
 
 /***** FUNÇÕES *****/
-
-/* Função de inicialização */
-
-const init = () => {
-    updateUI();
-    clearInput();
-};
 
 /* Função que cria o template dos itens da lista de tarefas. */
 
@@ -41,7 +21,7 @@ const createItem = (el) => {
                 <button class="checkbox button">
                     ${el.done === false ? '<i class="large material-icons">check_box_outline_blank</i>' : '<i class="large material-icons">check_box</i>'}
                 </button>
-                <button class="delete button hide" onClick="deleteItem">
+                <button class="delete button hide">
                     <i class="large material-icons">clear</i>
                 </button>
             </div>
@@ -49,10 +29,6 @@ const createItem = (el) => {
     `; 
     
     DOM.list.insertAdjacentHTML('beforeend', markup);
-}
-
-const deleteItem = (el) => {
-    
 }
 
 /* Função que renderiza os itens na tela. */
@@ -83,6 +59,21 @@ const customizeLines = () => {
     });
 };
 
+/* Função que customiza as tarefas, diferenciando-as por checagem. */
+
+const customizeTodos = () => {
+    const allTodos = document.querySelectorAll('.todo');
+
+    allTodos.forEach((el, i) => {
+        if (todos[i].done) {
+            el.classList.add('checked');
+        }
+        else {
+            el.classList.remove('checked');
+        }
+    });
+}
+
 /* Função que limpa a interface do usuário, evitando itens duplicados. */
 
 const clearUI = () => DOM.list.innerHTML = '';
@@ -96,13 +87,15 @@ const updateUI = () => {
     // Adiciona todos itens à interface de usuário.
     renderItems();
     
+    // Personaliza o estilo das tarefas caso elas estejam marcadas ou não.
+    customizeTodos();
+
     // Personaliza/alterna as cores das linhas da lista de tarefas.
     customizeLines();
+
+    // Devolve o foco ao input.
+    DOM.input.focus();
 };
-
-
-
-init();
 
 /***** EVENT LISTENTERS *****/
 
@@ -123,26 +116,79 @@ DOM.addButton.addEventListener('click', () => {
     }
 });
 
+/* Adiciona uma nova tarefa ao apertar no ENTER. */
+
+DOM.input.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13 && DOM.input.value !== '') {
+        e.preventDefault();
+
+        todos.push({
+            todo: getInput(),
+            done: false,
+        });
+    
+        updateUI();
+
+        clearInput();
+    } else {
+        console.log('Erro: Não é possível adicionar tarefas em branco.');
+    }
+});
+
+/* Delegação de eventos para o ícone de exclusão e para a caixa de seleção. */
+
 DOM.list.addEventListener('click', (e) => {
     const allListItems = document.querySelectorAll('.list-item');
-    const listItem = e.target.closest('.list-item');
     const checkbox = e.target.closest('.checkbox');
     const deleteButton = e.target.closest('.delete');
 
+    // Ao clicar na caixa de seleção...
     if (checkbox) {
-        console.log('A checkbox was clicked.');
-        listItem.children[0].classList.toggle('checked');
-    }
-    else if (deleteButton) {
-        const listItemToBeRemoved = deleteButton.parentNode.parentNode;
-        console.log('A delete button was clicked.');
+        const listItemToBeChecked = checkbox.parentNode.parentNode;
         
         allListItems.forEach((el, i) => {
-            if (el.isSameNode(listItemToBeRemoved)) {{
-                console.log(`Deleting the task of index ${i}`);
-                todos.pop(todos[i]);
+            if (el.isSameNode(listItemToBeChecked)) {{
+                todos[i].done = !todos[i].done;
                 updateUI();
             }}
         });
+    }
+    // Ao clicar no botão de deletar...
+    else if (deleteButton) {
+        const listItemToBeRemoved = deleteButton.parentNode.parentNode;
+        
+        allListItems.forEach((el, i) => {
+            if (el.isSameNode(listItemToBeRemoved)) {{
+                todos.splice(i, 1);
+                updateUI();
+            }}
+        });
+    }
+});
+
+/* Exclui todas as tarefas ao clicar no botão. */
+
+DOM.deleteAllButton.addEventListener('click', () => {
+    todos = [];
+    updateUI();
+});
+
+/* Mostra o ícone de exclusão de uma tarefa específica ao colocar o cursor sobre a linha desta tarefa. */
+
+DOM.list.addEventListener('mouseover', (e) => {
+    const listItem = e.target.closest('.list-item');
+    
+    if (listItem) {
+        listItem.children[1].children[1].classList.toggle('hide');
+    }
+});
+
+/* Esconde o ícone de exclusão de uma tarefa específica ao retirar o cursor da linha desta tarefa. */
+
+DOM.list.addEventListener('mouseout', (e) => {
+    const listItem = e.target.closest('.list-item');
+
+    if (listItem) {
+        listItem.children[1].children[1].classList.toggle('hide');
     }
 });
