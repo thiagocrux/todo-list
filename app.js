@@ -84,7 +84,10 @@ const updateUI = () => {
     // Limpa as entradas anteriores da interface do usuário.
     clearUI();
 
-    // Adiciona todos itens à interface de usuário.
+    // Limpa o input.
+    clearInput();
+
+    // Cria os itens que serão adicionados à interface de usuário.
     renderItems();
     
     // Personaliza o estilo das tarefas caso elas estejam marcadas ou não.
@@ -92,9 +95,6 @@ const updateUI = () => {
 
     // Personaliza/alterna as cores das linhas da lista de tarefas.
     customizeLines();
-
-    // Devolve o foco ao input.
-    DOM.input.focus();
 };
 
 /***** EVENT LISTENTERS *****/
@@ -111,6 +111,8 @@ DOM.addButton.addEventListener('click', () => {
         updateUI();
 
         clearInput();
+
+        DOM.input.focus();
     } else {
         console.log('Erro: Não é possível adicionar tarefas em branco.');
     }
@@ -129,7 +131,7 @@ DOM.input.addEventListener('keyup', (e) => {
     
         updateUI();
 
-        clearInput();
+        DOM.input.focus();
     } else {
         console.log('Erro: Não é possível adicionar tarefas em branco.');
     }
@@ -171,6 +173,7 @@ DOM.list.addEventListener('click', (e) => {
 DOM.deleteAllButton.addEventListener('click', () => {
     todos = [];
     updateUI();
+    DOM.input.focus();
 });
 
 /* Mostra o ícone de exclusão de uma tarefa específica ao colocar o cursor sobre a linha desta tarefa. */

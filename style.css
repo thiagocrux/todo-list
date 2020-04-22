@@ -2,13 +2,13 @@
 
 :root {
     --custom-line-space: 3rem;
-    --text-color-1: #000000;
-    --text-color-2: #3b3b3b;
-    --text-color-3: #979797;
+    --text-color-1: #272727;
+    --text-color-2: #424246;
+    --text-color-3: #a5a3a3;
     --delete-icon-color: #c47179;
     --add-icon-color: #6998a3;
     --item-background-color-1: #ffffff;
-    --item-background-color-2: #d3d3d3;
+    --item-background-color-2: #e5dcd2;
     --custom-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -29,10 +29,17 @@ html {
 body {
     margin: 0 auto;
     height: 100vh;
-    width: 50rem;
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
-    background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    color: var(--text-color-1);
+    background-image: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 ul {
@@ -64,6 +71,7 @@ input::placeholder {
 
 .button {
     border: none;
+    color: var(--text-color-2);
     width: var(--custom-line-space);
     background-color: transparent;
     cursor: pointer;
@@ -77,14 +85,21 @@ input::placeholder {
 
 /* Seção principal */
 
-.primary-heading {
-    margin: 8rem 0;
-    font-size: 4.3rem;
-    text-align: center;
-}
-
 .main-section {
     width: 100%;
+    margin: 0 auto;
+} 
+
+.primary-heading {
+    margin: 12rem 0 8rem 0;
+    font-weight: 700;
+    font-size: 4.8rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.todo-list-section {
+    width: 50rem;
     margin: 0 auto;
     text-align: center;
     box-shadow: var(--custom-box-shadow);
@@ -113,14 +128,8 @@ input::placeholder {
     line-height: var(--custom-line-space);
 }
 
-
 .delete {
     color: var(--delete-icon-color);
-}
-
-.add-new-task {
-    background-color: var(--item-background-color-2);
-    transition: all .3s;
 }
 
 .submit-container {
@@ -137,6 +146,12 @@ input::placeholder {
     border: none;
     width: 100%;
     height: var(--custom-line-space);
+}
+
+.add-new-task {
+    background-color: var(--item-background-color-2);
+    height: 30px;
+    transition: all .3s;
 }
 
 .delete-all {
@@ -157,4 +172,16 @@ input::placeholder {
 .delete-all:hover {
     background-color: var(--delete-icon-color);
     color: var(--item-background-color-1);
+}
+
+.footer {
+    margin-top: 6rem;
+    padding: 1rem;
+}
+
+.copyright {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--text-color-2);
+    text-align: center;
 }
