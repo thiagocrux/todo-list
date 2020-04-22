@@ -18,11 +18,11 @@ const createItem = (el) => {
         <li class="list-item">
             <p class="todo">${el.todo}</p>
             <div class="buttons-container">
-                <button class="checkbox button">
-                    ${el.done === false ? '<i class="large material-icons">check_box_outline_blank</i>' : '<i class="large material-icons">check_box</i>'}
-                </button>
                 <button class="delete button hide">
                     <i class="large material-icons">clear</i>
+                </button>
+                <button class="checkbox button">
+                    ${el.done === false ? '<i class="large material-icons">check_box_outline_blank</i>' : '<i class="large material-icons">check_box</i>'}
                 </button>
             </div>
         </li>
@@ -179,7 +179,7 @@ DOM.list.addEventListener('mouseover', (e) => {
     const listItem = e.target.closest('.list-item');
     
     if (listItem) {
-        listItem.children[1].children[1].classList.toggle('hide');
+        listItem.children[1].children[0].classList.toggle('hide');
     }
 });
 
@@ -189,6 +189,6 @@ DOM.list.addEventListener('mouseout', (e) => {
     const listItem = e.target.closest('.list-item');
 
     if (listItem) {
-        listItem.children[1].children[1].classList.toggle('hide');
+        listItem.children[1].children[0].classList.toggle('hide');
     }
 });
