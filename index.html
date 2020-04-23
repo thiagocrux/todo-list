@@ -6,28 +6,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Lista de Tarefas</title>
 </head>
 <body>
-    <main class="main-section">
-        <a href="#"><i></i></a>
-        <h1 class="primary-heading">Uma simples lista de tarefas</h1>
-        <section class="todo-list-section">
-            <ul class="list">
-                <!-- Gerado pelo JavaScript... -->
-            </ul>
-            <div class="submit-container">
-                <input class="input" type="text" placeholder="O que você precisa fazer?">
-                <button class="add-new-task button"><i class="material-icons">add</i></button>
+    <div class="flex-container-1">
+        <header class="header">
+            <a class="github-link" href="https://github.com/tlcs1993/todo-list" target="_blank"><img src="./public/icons/GitHub-Mark/PNG/GitHub-Mark-32px.png" alt="Logo do Github"></a>
+            <h1 class="primary-heading">Muitas tarefas para fazer, não é?</h1>
+        </header>
+        <main class="main-section">
+            <section class="todo-list-section">
+                <ul class="list">
+                    <!-- Gerado pelo JavaScript... -->
+                </ul>
+                <div class="submit-container">
+                    <input class="input" type="text" placeholder="Escreva aqui antes que se esqueça...">
+                    <button class="add-new-task button"><i class="material-icons">add</i></button>
+                </div>
+            </section>
+            <div class="delete-all-container">
+                <button class="button delete-all">
+                    <i class="material-icons">delete_forever</i>
+                </button>
             </div>
-            <button class="button delete-all">
-                <i class="material-icons">delete_forever</i>
-            </button>
-        </section>
-    </main>
-    <footer class="footer">
+        </main>
+    </div>
+    <footer class="footer flex-container-2">
         <p class="copyright">&copy; copyright 2020 - Thiago Cruz</p>
     </footer>
+
     <script src="app.js"></script>
 </body>
 </html>

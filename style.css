@@ -4,11 +4,11 @@
     --custom-line-space: 3rem;
     --text-color-1: #272727;
     --text-color-2: #424246;
-    --text-color-3: #a5a3a3;
+    --text-color-3: #969696;
     --delete-icon-color: #c47179;
     --add-icon-color: #6998a3;
     --item-background-color-1: #ffffff;
-    --item-background-color-2: #e5dcd2;
+    --item-background-color-2: #d5d8db;
     --custom-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -32,11 +32,10 @@ body {
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     color: var(--text-color-1);
-    background-image: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,7 +48,7 @@ ul {
 input::placeholder {
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
-    font-weight: 400;
+    font-weight: 300;
     color: var(--text-color-3);
 }
 
@@ -81,22 +80,42 @@ input::placeholder {
     display: none;
 } 
 
+.hover {
+    font-weight: 500;
+}
+
 /***** CUSTOM *****/
+
+/* Cabeçalho */
+
+.header {
+    margin-bottom: 8rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.github-link {
+    padding: 1.2rem 2rem;
+    margin-bottom: 8rem;
+    align-self: flex-end;
+    transform: scale(.8);
+}
+
+.primary-heading {
+    font-weight: 700;
+    font-size: 4.8rem;
+    text-align: center;
+}
 
 /* Seção principal */
 
 .main-section {
-    width: 100%;
     margin: 0 auto;
-} 
-
-.primary-heading {
-    margin: 12rem 0 8rem 0;
-    font-weight: 700;
-    font-size: 4.8rem;
-    text-align: center;
-    text-transform: uppercase;
+    margin-bottom: 6rem;
+    width: 50rem;
 }
+
 
 .todo-list-section {
     width: 50rem;
@@ -154,6 +173,13 @@ input::placeholder {
     transition: all .3s;
 }
 
+.delete-all-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .delete-all {
     margin-top: 2rem;
     height: 3rem;
@@ -161,12 +187,11 @@ input::placeholder {
     font-weight: 500;
     background-color: var(--item-background-color-2);
     box-shadow: var(--custom-box-shadow);
-    float: right;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     transition: all .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
 }
 
 .delete-all:hover {
@@ -174,9 +199,12 @@ input::placeholder {
     color: var(--item-background-color-1);
 }
 
+/* Rodapé */
+
 .footer {
-    margin-top: 6rem;
     padding: 1rem;
+    justify-self: flex-end;
+
 }
 
 .copyright {

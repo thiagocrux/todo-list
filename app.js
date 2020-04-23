@@ -182,6 +182,7 @@ DOM.list.addEventListener('mouseover', (e) => {
     const listItem = e.target.closest('.list-item');
     
     if (listItem) {
+        listItem.children[0].classList.toggle('hover');
         listItem.children[1].children[0].classList.toggle('hide');
     }
 });
@@ -190,8 +191,9 @@ DOM.list.addEventListener('mouseover', (e) => {
 
 DOM.list.addEventListener('mouseout', (e) => {
     const listItem = e.target.closest('.list-item');
-
+    
     if (listItem) {
+        listItem.children[0].classList.toggle('hover');
         listItem.children[1].children[0].classList.toggle('hide');
     }
 });
