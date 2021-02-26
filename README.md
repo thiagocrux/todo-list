@@ -1,6 +1,6 @@
 # A Simple To-do List
 
-This app is a simple to-do list made by me with the goal of learning how to manipulate the DOM and test my JavaScript skills.
+This app is a simple to-do list made by me for a college assignment in the Web Development subject. In the development of the app I learned more about DOM manipulation and also tested my JavaScript skills.
 
 ## :toolbox: Built With
 
@@ -29,7 +29,7 @@ The app is lacking some features like responsivity and data persistence and this
 
 ## :pirate_flag: Licence
 
-Copyright (c) 2021 by Thiago Luiz da Cruz Souza
+Copyright (c) 2020 by Thiago Luiz da Cruz Souza
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
