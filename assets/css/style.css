@@ -1,0 +1,240 @@
+/***** VARIÁVEIS *****/
+
+:root {
+  --custom-line-space: 3rem;
+  --text-color-1: #272727;
+  --text-color-2: #424246;
+  --text-color-3: #969696;
+  --delete-icon-color: #c47179;
+  --add-icon-color: #6998a3;
+  --item-background-color-1: #ffffff;
+  --item-background-color-2: #ededee;
+  --custom-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.161),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  --custom-gradient: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  --custom-border-1: 2px solid #77c6ee;
+  --custom-border-2: 2px solid #c47179;
+}
+
+/***** RESET *****/
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/***** BASE *****/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0 auto;
+  height: 100vh;
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  color: var(--text-color-1);
+  background-image: var(--custom-gradient);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+  border: var(--custom-border-1);
+}
+
+input::placeholder {
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--text-color-3);
+}
+
+/***** COMPONENTES *****/
+
+.custom-item-background-1 {
+  background-color: var(--item-background-color-1);
+}
+
+.custom-item-background-2 {
+  background-color: var(--item-background-color-2);
+}
+
+.checked {
+  color: var(--text-color-3);
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.button {
+  border: none;
+  color: var(--text-color-2);
+  width: var(--custom-line-space);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.hover {
+  font-weight: 500;
+}
+
+/***** CUSTOM *****/
+
+/* Cabeçalho */
+
+.header {
+  margin-bottom: 8rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.github-link {
+  padding: 1.2rem 2rem;
+  margin-bottom: 8rem;
+  align-self: flex-end;
+  transform: scale(0.8);
+}
+
+.primary-heading {
+  font-weight: 700;
+  font-size: 4.8rem;
+  text-align: center;
+}
+
+/* Seção principal */
+
+.main-section {
+  margin: 0 auto;
+  margin-bottom: 6rem;
+  width: 50rem;
+}
+
+.todo-list-section {
+  width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--custom-box-shadow);
+}
+
+.list {
+  margin: 0 auto;
+  background-color: var(--item-background-color-1);
+}
+
+.list-item {
+  padding-left: 1rem;
+  height: var(--custom-line-space);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s;
+}
+
+.list-item:last-child {
+  border-bottom: 1px solid var(--item-background-color-2);
+}
+
+.todo {
+  line-height: var(--custom-line-space);
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.delete {
+  color: var(--delete-icon-color);
+}
+
+.submit-container {
+  margin: 0 auto;
+  width: 50rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.input {
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  padding-left: 1rem;
+  border: none;
+  width: 100%;
+  height: var(--custom-line-space);
+}
+
+.add-new-task {
+  background-color: var(--item-background-color-2);
+  height: 30px;
+  transition: all 0.3s;
+}
+
+.delete-all-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.delete-all {
+  margin-top: 2rem;
+  height: 3rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-color: var(--item-background-color-2);
+  box-shadow: var(--custom-box-shadow);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.delete-all:hover {
+  background-color: var(--delete-icon-color);
+  color: var(--item-background-color-1);
+}
+
+.delete-all:focus {
+  outline: none;
+  border: var(--custom-border-2);
+}
+
+/* Rodapé */
+
+.footer {
+  padding: 1rem;
+  justify-self: flex-end;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--text-color-2);
+  text-align: center;
+}
