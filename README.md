@@ -21,6 +21,7 @@ This app is a simple to-do list made by me for a college assignment in the Web D
 ## :camera: Screenshots
 
 ![screenshot-1](https://user-images.githubusercontent.com/29850573/109230721-11afae00-77a4-11eb-93c4-3abcc183597c.png)
+
 ![screenshot-2](https://user-images.githubusercontent.com/29850573/109230746-1e340680-77a4-11eb-8d50-2fd1dddaafd2.png)
   
 ## :alarm_clock: Status
